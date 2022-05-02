@@ -1,0 +1,27 @@
+GET http://localhost:8888/posts
+
+###
+
+POST http://localhost:8888/posts
+Content-Type: application/json
+
+{
+    "title": "testing",
+    "text": "men int endå"
+}
+
+###
+
+DELETE http://localhost:8888/posts/627037bc33662f2e446abb18
+
+###
+
+POST http://localhost:8888/posts/627046cab100e8e502f7ea0c/comments
+Content-Type: application/json
+
+{
+    "name": "Anton",
+    "comment": "hej"
+}
+
+###
