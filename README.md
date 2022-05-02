@@ -20,7 +20,7 @@ Install all node dependencies for client side, from root use:
 ### `npm install`
 
 
-... and to start server use:
+... and to start app use:
 ### `npm start`
 
 
