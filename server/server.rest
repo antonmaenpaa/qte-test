@@ -12,7 +12,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8888/posts/627037bc33662f2e446abb18
+DELETE http://localhost:8888/posts/62703a48229ad65e3d7873d7
 
 ###
 

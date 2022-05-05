@@ -12,7 +12,11 @@ router.get("/posts", async (req, res) => {
 router.post("/posts", async (req, res) => {
     const post = { ...req.body}
     const doc = await Post.create(post);
-    res.status(200).json(doc);
+    if(req.body.title === "" || req.body.text === ""){
+        res.status(400).json({message: "Title and text are required"});
+    } else {
+        res.status(201).json(doc);
+    }
 });
 
 router.delete("/posts/:id", async (req, res) => {
