@@ -2,6 +2,8 @@
 
 ## Run these commands when cloning this project
 
+First add .env file in server directory with info from .env.example file.
+
 Install all node dependencies for server side, from root use:
 
 ### `cd server`
