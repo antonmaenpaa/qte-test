@@ -5,10 +5,9 @@ import Post from './components/post';
 import './App.css';
 import Box from '@mui/material/Box';
 import SendIcon from '@mui/icons-material/Send';
-import { makeStyles, createStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import { CommentModel, PostModel } from './models/reduxModels';
 import { Paper, TextareaAutosize, Button, TextField, Container, Typography, Modal } from '@material-ui/core';
-import { handleBreakpoints } from '@mui/system';
 
 
 function App() {
@@ -63,7 +62,9 @@ const sendComment = (e: any) => {
     setName('');
     setComment('');
     handleClose();
+
     dispatch(fetchPosts());
+    window.location.reload();
 }
 
   // const checkparticularPost = () : boolean => {
@@ -72,9 +73,9 @@ const sendComment = (e: any) => {
   //     }
   //     return true
   // }
-  const showHideComments = (id: any) => {
-    setShowComments(id);
-    setshowCommentBoolean(!showCommentBoolean);
+const showHideComments = (id: any) => {
+  setShowComments(id);
+  setshowCommentBoolean(!showCommentBoolean);
 };
 
 
@@ -95,7 +96,7 @@ const sendComment = (e: any) => {
               required
               id="standard-basic"
               variant="standard"
-              label="Title"
+              label="Name"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -167,6 +168,7 @@ const sendComment = (e: any) => {
                                         marginTop: '1rem'}} 
                                     variant="contained"
                                     onClick={sendComment}
+                                    disabled={!name || !comment}
                             >
                                 Send
                             </Button>
