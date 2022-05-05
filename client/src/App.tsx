@@ -6,7 +6,7 @@ import './App.css';
 import Box from '@mui/material/Box';
 import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@mui/styles';
-import { CommentModel, PostModel } from './models/reduxModels';
+import { PostModel } from './models/reduxModels';
 import { Paper, TextareaAutosize, Button, TextField, Container, Typography, Modal } from '@material-ui/core';
 
 

@@ -1,5 +1,5 @@
 import Api from './api';
-import { PostModel, CommentModel } from '../models/reduxModels';
+import { PostModel } from '../models/reduxModels';
 export default{
     async getAllPosts(){
         let response = await Api().get('posts');

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import { makeStyles, createStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 interface Props {
     title: string;
@@ -13,13 +12,9 @@ interface Props {
 
 }
 
-
 function Post(props: Props) {
     const classes = useStyles();
     const { title, text, showHideComments, length, toggleModal } = props;
-    // const { comment, name } = state;
-    const [ comment, setComment] = useState('');
-    const [name, setName] = useState('');
 
     return(
         <>
