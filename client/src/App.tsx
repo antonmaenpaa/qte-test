@@ -23,6 +23,7 @@ function App() {
   const [comment, setComment] = useState('');
   const [name, setName] = useState('');
   const [open, setOpen] = useState(false);
+  const [showCommentBoolean, setshowCommentBoolean ] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -73,6 +74,7 @@ const sendComment = (e: any) => {
   // }
   const showHideComments = (id: any) => {
     setShowComments(id);
+    setshowCommentBoolean(!showCommentBoolean);
 };
 
 
@@ -115,7 +117,7 @@ const sendComment = (e: any) => {
                   allposts.map((post: any, index) => (
                     <>
        
-                      <div className={showComments === post._id ? classes.show : classes.hide}>
+                      <div className={showComments === post._id && showCommentBoolean ? classes.show : classes.hide}>
                         {post.comments?.map((comment: any) => (
                           <Paper elevation={2} className={classes.comment}>
                             <p className={classes.p}>{comment.name}</p>
