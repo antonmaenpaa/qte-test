@@ -1,5 +1,5 @@
 import Api from './api';
-import { PostModel } from '../models/reduxModels';
+import { PostModel, CommentModel } from '../models/reduxModels';
 export default{
     async getAllPosts(){
         let response = await Api().get('posts');
@@ -21,5 +21,10 @@ export default{
         let response = await Api().delete(`posts/${post_id}`);
         return response.data;
 
+    },
+
+    async addComment(post_id: any, name: string, comment: string){
+        let response = await Api().post(`posts/${post_id}/comments`, {name, comment});
+        return response.data;
     }
 }

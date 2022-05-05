@@ -42,7 +42,6 @@ router.post('/posts/:postId/comments', (req, res) => {
       post.comments.push(comment);
       return post.save();
     })
-    .then(() => res.redirect('/'))
     .catch((err) => {
       console.log(err);
     });
