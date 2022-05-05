@@ -3,7 +3,6 @@ import { PostModel, CommentModel } from '../models/reduxModels';
 export default{
     async getAllPosts(){
         let response = await Api().get('posts');
-        console.log(response.data);
         return response.data;
 
     },

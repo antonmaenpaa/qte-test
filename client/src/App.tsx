@@ -17,7 +17,6 @@ function App() {
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const allposts = useAppSelector(state => state.post.all_posts);
-  const particularPost = useAppSelector(state => state.post.particular_post);
   const [showComments, setShowComments] = useState(null);
   const [comment, setComment] = useState('');
   const [name, setName] = useState('');
@@ -54,9 +53,9 @@ function App() {
     handleOpen();
     setPost_id(id);
 
-}, [])
+  }, [])
 
-const sendComment = (e: any) => {
+  const sendComment = (e: any) => {
     e.preventDefault();
     dispatch(addComment(post_id, name, comment));
     setName('');
@@ -65,23 +64,18 @@ const sendComment = (e: any) => {
 
     dispatch(fetchPosts());
     window.location.reload();
-}
+  }
 
-  // const checkparticularPost = () : boolean => {
-  //     if(particularPost._id === 0){
-  //         return false
-  //     }
-  //     return true
-  // }
-const showHideComments = (id: any) => {
+  const showHideComments = (id: any) => {
   setShowComments(id);
   setshowCommentBoolean(!showCommentBoolean);
-};
+  };
 
 
   return (
     <>
       <Container className={classes.container}  maxWidth="sm">
+        {/* FORM ADD POST */}
           <Box
             className={classes.box}
             component="form"
@@ -117,15 +111,16 @@ const showHideComments = (id: any) => {
               {checkPost() &&
                   allposts.map((post: any, index) => (
                     <>
-       
+                      {/* COMMENTS DIV */}
                       <div className={showComments === post._id && showCommentBoolean ? classes.show : classes.hide}>
                         {post.comments?.map((comment: any) => (
                           <Paper elevation={2} className={classes.comment}>
-                            <p className={classes.p}>{comment.name}</p>
+                            <p style={{fontWeight: 500}} className={classes.p}>{comment.name}</p>
                             <p className={classes.p}>{comment.comment}</p>
                           </Paper>
                         ))}
                       </div>
+                      {/* POSTS DIV */}
                       <Post 
                         key={post._id}
                         title={post.title}
@@ -136,6 +131,7 @@ const showHideComments = (id: any) => {
                         toggleModal={toggleModal(post._id)}
                         
                       />
+                      {/* MODEL ADD COMMENT TO POST */}
                       <Modal
                         open={open}
                         onClose={handleClose}
@@ -200,7 +196,7 @@ const useStyles = makeStyles((theme: any) => ({
   comment: {
     borderTopLeftRadius: '0px !important',
     borderRadius: '20px !important',
-    padding: '0.1rem 0.5rem',
+    padding: '0.4rem 1rem',
     width: '50%',
     marginBottom: '.5rem',
   },
